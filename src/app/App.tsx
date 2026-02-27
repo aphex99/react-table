@@ -1,0 +1,15 @@
+import {QueryClientProvider} from "@tanstack/react-query";
+import {queryClient} from "@/shared/config/queryClient/queryClient.ts";
+import AppRouter from "@/app/routes/AppRouter.tsx";
+import {Toaster} from "react-hot-toast";
+
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AppRouter/>
+      <Toaster/>
+    </QueryClientProvider>
+  );
+};
+
+export default App;
