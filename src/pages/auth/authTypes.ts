@@ -6,7 +6,7 @@ export interface AuthFormType {
   remember?: boolean;
 }
 
-export interface LoginRequestType {
+export interface AuthRequestType {
   username: string;
   password: string;
   expiresInMins?: number;
@@ -20,4 +20,5 @@ export interface ErrorResponseType {
 export interface UseLoginType {
   remember?: boolean;
   setError: (name: 'username' | 'password', error: FieldError) => void;
+  setShowLoader: (showLoader: boolean) => void;
 }
