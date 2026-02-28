@@ -1,10 +1,11 @@
-import {loaderDelay} from "@/shared/model/loaderDelay.ts";
+import {loaderDelay} from "@/shared/model/loader/loaderDelay.ts";
 import {loginApi} from "./login.api.ts";
 import type {AuthRequestType, ErrorResponseType, UseLoginType} from "../authTypes.ts";
 import {useMutation} from "@tanstack/react-query";
 
 export const useLogin = ({remember, setError, setShowLoader}: UseLoginType) => {
   const {mutate, isPending} = useMutation({
+
     mutationFn: async (data: AuthRequestType) => {
       const start = Date.now();
       setShowLoader(true);
@@ -24,6 +25,7 @@ export const useLogin = ({remember, setError, setShowLoader}: UseLoginType) => {
 
     onSuccess: (response) => {
       const token = response.data.accessToken;
+
       if (remember) {
         localStorage.setItem("token", token);
       } else {

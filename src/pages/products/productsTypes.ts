@@ -1,4 +1,7 @@
-export type ProductsResponseType = ProductType[];
+export interface ProductsResponseType {
+  products: ProductType[];
+  total: number;
+}
 
 export interface ProductType {
   id: number;
@@ -7,8 +10,12 @@ export interface ProductType {
   price: number;
   sku: string;
   brand: string;
+  rating: number;
 }
 
-export interface TablePropsType {
-  products: ProductType[];
+export interface ProductsRequestType {
+  limit: number;
+  skip: number;
+  sortName?: string | null;
+  sortOrder?: 'asc' | 'desc' | null;
 }
