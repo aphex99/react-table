@@ -1,8 +1,8 @@
-import type {LoginRequestType} from "@/pages/auth/authTypes.ts";
+import type {AuthRequestType} from "@/pages/auth/authTypes.ts";
 import {axiosInstance} from "@/shared/config/axios/axios.ts";
 
 export const loginApi = {
-  login(request: LoginRequestType) {
+  login(request: AuthRequestType) {
     return axiosInstance.post("/auth/login", request);
   }
 };
