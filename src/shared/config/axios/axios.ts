@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 export const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
-  timeout: 20000,
+  timeout: 20000
 });
 
 axiosInstance.interceptors.request.use((config) => {
@@ -35,10 +35,8 @@ axiosInstance.interceptors.response.use(
           toast(error.message ?? 'An error occurred');
       }
     } else if (error.request) {
-      console.log(error.message);
       toast(error.message ?? 'Network error. Check your connection');
     }
-
     return Promise.reject(error.response ?? error);
   }
 );

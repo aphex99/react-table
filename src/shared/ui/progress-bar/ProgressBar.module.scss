@@ -1,0 +1,16 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  height: 6px;
+  width: 100%;
+  background: #e5e5e5;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: #ada1ff;
+  width: var(--progress);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
