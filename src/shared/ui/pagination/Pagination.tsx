@@ -1,4 +1,3 @@
-import {ITEMS_ON_PAGE} from "@/pages/products/ui/table-wrapper/config/consts.ts";
 import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
 import Button from "@/shared/ui/button/Button.tsx";
 import type {PaginationPropsType} from "@/shared/ui/pagination/paginationTypes.ts";
@@ -14,7 +13,7 @@ const Pagination = ({pageCount, currentPage, onChange}: PaginationPropsType) => 
 
   const goTo = (page: number) => {
     if (page < 1 || page > pageCount || page === currentPage) return;
-    onChange(page, ITEMS_ON_PAGE);
+    onChange(page);
   };
 
   const onPrev = () => goTo(currentPage - 1);

@@ -14,8 +14,9 @@ export interface ProductType {
 }
 
 export interface ProductsRequestType {
+  searchQuery: string;
   limit: number;
   skip: number;
-  sortName?: string | null;
+  sortName?: 'rating' | 'price' | null;
   sortOrder?: 'asc' | 'desc' | null;
 }
