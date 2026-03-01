@@ -7,7 +7,7 @@ import {useState} from "react";
 const Products = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const isFetching = useIsFetching({queryKey: ["products"]});
+  const isFetching = useIsFetching({queryKey: ["products"], exact: false});
 
   return (
     <div>

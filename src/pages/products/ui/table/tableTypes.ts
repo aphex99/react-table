@@ -5,5 +5,12 @@ import type {
 
 export interface TablePropsType {
   products: ProductType[];
-  handleSort: (values: HandleSortParametersType) => void;
+  handleSort: (field: HandleSortParametersType) => void;
+}
+
+export type ProductFields = 'price' | 'title' | 'sku' | 'brand' | 'rating';
+
+export interface TableHeaderType {
+  label: string;
+  sortKey: ProductFields;
 }

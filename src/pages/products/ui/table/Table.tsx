@@ -11,11 +11,11 @@ const Table = ({products, handleSort}: TablePropsType) => {
       <tr>
         <th><input type="checkbox"/></th>
         {TABLE_HEADERS.map((header => (
-          <th key={header}>
-            <span>{header}</span>
-            {header === 'Оценка' || header === 'Цена, ₽' ?
+          <th key={header.sortKey}>
+            <span>{header.label}</span>
+            {header.sortKey === 'rating' || header.sortKey === 'price' ?
               <ButtonIcon className={styles.buttonIcon}
-                          onClick={() => handleSort({field: header})}><SortIcon
+                          onClick={() => handleSort({field: header.sortKey})}><SortIcon
                 className={styles.icon}/></ButtonIcon> : null}
           </th>
         )))}

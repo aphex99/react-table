@@ -1,6 +1,6 @@
 import {loaderDelay} from "@/shared/model/loader/loaderDelay.ts";
 import {loginApi} from "./login.api.ts";
-import type {AuthRequestType, ErrorResponseType, UseLoginType} from "../authTypes.ts";
+import type {AuthRequestType, ErrorResponseType, UseLoginType} from "src/pages/auth/model/authTypes.ts";
 import {useMutation} from "@tanstack/react-query";
 
 export const useLogin = ({remember, setError, setShowLoader}: UseLoginType) => {

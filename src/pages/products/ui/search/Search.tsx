@@ -1,15 +1,10 @@
 import {useDebounce} from "@/pages/products/ui/search/model/useDebounce.tsx";
 import type {SearchPropsType} from "@/pages/products/ui/search/searchTypes.ts";
-import {type ChangeEvent, useEffect, useState} from "react";
+import {type ChangeEvent, useEffect} from "react";
 
 const Search = ({value, onChangeValue}: SearchPropsType) => {
-  const [query, setQuery] = useState('');
 
-  useEffect(() => {
-    setQuery(value);
-  }, [value]);
-
-  const debouncedQuery = useDebounce(query, 1000);
+  const debouncedQuery = useDebounce(value, 1000);
 
   useEffect(() => {
     onChangeValue(debouncedQuery);
@@ -17,7 +12,7 @@ const Search = ({value, onChangeValue}: SearchPropsType) => {
 
   return (
     <div>
-      <input value={query} onChange={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)} type="text"/>
+      <input value={value} onChange={(e: ChangeEvent<HTMLInputElement>) => onChangeValue(e.target.value)} type="text"/>
     </div>
   );
 };

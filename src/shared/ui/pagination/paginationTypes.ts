@@ -1,10 +1,10 @@
 export interface UsePaginationParamsType {
-  pageCount: number;
+  pagesCount: number;
   currentPage: number;
 }
 
 export interface PaginationPropsType {
-  pageCount: number;
+  pagesCount: number;
   currentPage: number;
   onChange: (page: number) => void;
 }
