@@ -1,18 +1,23 @@
 import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
 import Button from "@/shared/ui/button/Button.tsx";
-import type {PaginationPropsType} from "@/shared/ui/pagination/paginationTypes.ts";
-import {usePagination} from "@/shared/ui/pagination/usePagination.ts";
+import {usePagination} from "@/shared/ui/pagination/model/usePagination.ts";
 import styles from "./Pagination.module.scss";
 
-const Pagination = ({pageCount, currentPage, onChange}: PaginationPropsType) => {
+export interface PaginationPropsType {
+  pagesCount: number;
+  currentPage: number;
+  onChange: (page: number) => void;
+}
 
-  const paginationRange = usePagination({pageCount, currentPage});
+const Pagination = ({pagesCount, currentPage, onChange}: PaginationPropsType) => {
+
+  const paginationRange = usePagination({pagesCount, currentPage});
   const showPages = paginationRange.length >= 2;
   const isFirstPage = currentPage <= 1;
-  const isLastPage = currentPage >= pageCount;
+  const isLastPage = currentPage >= pagesCount;
 
   const goTo = (page: number) => {
-    if (page < 1 || page > pageCount || page === currentPage) return;
+    if (page < 1 || page > pagesCount || page === currentPage) return;
     onChange(page);
   };
 

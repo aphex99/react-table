@@ -1,8 +1,14 @@
+import type {ProductType} from "@/entities/product/model/types.ts";
 import {TABLE_HEADERS} from "@/pages/products/config/tableHeaders.ts";
-import type {TablePropsType} from "@/pages/products/ui/table/tableTypes.ts";
+import type {HandleSortParametersType} from "@/pages/products/model/types.ts";
 import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
 import SortIcon from "@/shared/assets/icons/sort1.svg?react";
 import styles from './Table.module.scss';
+
+export interface TablePropsType {
+  products: ProductType[];
+  handleSort: (field: HandleSortParametersType) => void;
+}
 
 const Table = ({products, handleSort}: TablePropsType) => {
   return (
@@ -11,11 +17,11 @@ const Table = ({products, handleSort}: TablePropsType) => {
       <tr>
         <th><input type="checkbox"/></th>
         {TABLE_HEADERS.map((header => (
-          <th key={header}>
-            <span>{header}</span>
-            {header === 'Оценка' || header === 'Цена, ₽' ?
+          <th key={header.sortKey}>
+            <span>{header.label}</span>
+            {header.sortKey === 'rating' || header.sortKey === 'price' ?
               <ButtonIcon className={styles.buttonIcon}
-                          onClick={() => handleSort({field: header})}><SortIcon
+                          onClick={() => handleSort({field: header.sortKey})}><SortIcon
                 className={styles.icon}/></ButtonIcon> : null}
           </th>
         )))}

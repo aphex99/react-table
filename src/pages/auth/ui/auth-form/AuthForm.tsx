@@ -1,21 +1,21 @@
-import {SpinnerLoader} from "@/shared/ui/spinner-loader/SpinnerLoader.tsx";
-import {useNavigate} from "react-router-dom";
-import {loginSchema} from "./config/loginSchema.ts";
-import {emailToUserNameMap} from "./model/emailToUserNameMap.ts";
+import {useLogin} from "@/pages/auth/api/useLogin.ts";
+import {type LoginFormSchemaType, loginSchema} from "@/pages/auth/config/loginSchema.ts";
+import {emailToUserNameMap} from "@/pages/auth/model/emailToUserNameMap.ts";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useState} from "react";
-import {useLogin} from "./api/useLogin.ts";
-import type {AuthFormType} from "./authTypes.ts";
-
-import EyeCrossedIcon from '@/shared/assets/icons/eye-crossed.svg?react';
-import EyeIcon from '@/shared/assets/icons/eye.svg?react';
-
 import {useForm, useWatch} from "react-hook-form";
+import {useNavigate} from "react-router-dom";
+import EyeIcon from '@/shared/assets/icons/eye.svg?react';
+import EyeCrossedIcon from '@/shared/assets/icons/eye-crossed.svg?react';
 
-import styles from './Auth.module.scss';
+interface AuthFormPropsType {
+  handleLoader: (value: boolean) => void;
+}
 
-const Auth = () => {
-  const [showLoader, setShowLoader] = useState(false);
+import styles from "./AuthForm.module.scss";
+
+const AuthForm = ({handleLoader}: AuthFormPropsType) => {
+
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ const Auth = () => {
     clearErrors,
     handleSubmit,
     formState: {errors}
-  } = useForm<AuthFormType>({
+  } = useForm<LoginFormSchemaType>({
     resolver: zodResolver(loginSchema),
     mode: "onBlur",
     reValidateMode: 'onBlur'
@@ -34,23 +34,18 @@ const Auth = () => {
 
   const remember = useWatch({control, name: 'remember', defaultValue: false});
 
-  const {mutate, isPending} = useLogin({remember, setError, setShowLoader});
+  const {mutate, isPending} = useLogin({remember, setError, handleLoader});
 
-  const onSubmit = ({username, password}: AuthFormType) => {
+  const onSubmit = ({username, password}: LoginFormSchemaType) => {
     const mappedUserName = emailToUserNameMap[username];
     mutate({username: mappedUserName, password}, {onSuccess: () => navigate('/items')});
   };
 
   const EyeIcons = showPassword ? EyeIcon : EyeCrossedIcon;
 
-  const handleShowPassword = () => {
-    setShowPassword(prev => !prev);
-  };
-
   return (
-    <div className={styles.container}>
+    <div>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-
         <div className={styles.input_container}>
           <label htmlFor="username">emily.johnson@x.dummyjson.com</label>
           <input type="text" id={"username"} {...register('username')} onChange={() => {
@@ -67,19 +62,19 @@ const Auth = () => {
               {...register('password')} onChange={() => {
               if (errors.password) clearErrors('password');
             }}/>
-            <EyeIcons className={styles.eye_icons} onClick={handleShowPassword}/>
+            <EyeIcons
+              className={styles.eye_icons}
+              onClick={() => setShowPassword(prev => !prev)}
+            />
           </div>
           {errors.password && (<span>{errors.password.message}</span>)}
         </div>
 
         <input type="checkbox" {...register('remember')}/>
-        <input type="submit" disabled={isPending}/>
+        <input type="submit" disabled={isPending} value={'Log In'}/>
       </form>
-
-      {showLoader && <SpinnerLoader/>}
-
     </div>
   );
 };
 
-export default Auth;
+export default AuthForm;

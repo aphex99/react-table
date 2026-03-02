@@ -1,9 +1,9 @@
-import Products from "@/pages/products/Products.tsx";
+import Products from "@/pages/products/ui/Products.tsx";
 import {ProtectedRoute} from "@/shared/routes/ProtectedRoute.tsx";
 import {PublicRoute} from "@/shared/routes/PublicRoute.tsx";
 import {Route, Routes} from "react-router-dom";
 import NotFound from "@/app/NotFound.tsx";
-import Auth from "@/pages/auth/Auth.tsx";
+import Auth from "@/pages/auth/ui/Auth.tsx";
 
 const AppRouter = () => {
   return (
