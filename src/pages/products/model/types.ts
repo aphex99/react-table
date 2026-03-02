@@ -1,9 +1,6 @@
-import type {ProductType} from "@/pages/products/productsTypes.ts";
-import type {ProductFields} from "@/pages/products/ui/table/tableTypes.ts";
+import type {ProductType} from "@/entities/product/model/types.ts";
 
-export interface TableWrapperPropsType {
-  searchQuery: string;
-}
+export type ProductFields = 'price' | 'title' | 'sku' | 'brand' | 'rating';
 
 export type SortStateType = {
   field: ProductFields | null;

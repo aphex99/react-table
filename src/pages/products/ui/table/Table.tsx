@@ -1,8 +1,14 @@
+import type {ProductType} from "@/entities/product/model/types.ts";
 import {TABLE_HEADERS} from "@/pages/products/config/tableHeaders.ts";
-import type {TablePropsType} from "@/pages/products/ui/table/tableTypes.ts";
+import type {HandleSortParametersType} from "@/pages/products/model/types.ts";
 import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
 import SortIcon from "@/shared/assets/icons/sort1.svg?react";
 import styles from './Table.module.scss';
+
+export interface TablePropsType {
+  products: ProductType[];
+  handleSort: (field: HandleSortParametersType) => void;
+}
 
 const Table = ({products, handleSort}: TablePropsType) => {
   return (

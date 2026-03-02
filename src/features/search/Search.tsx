@@ -1,10 +1,14 @@
-import {useDebounce} from "@/pages/products/ui/search/model/useDebounce.tsx";
-import type {SearchPropsType} from "@/pages/products/ui/search/searchTypes.ts";
+import {useDebounce} from "@/shared/libs/useDebounce.tsx";
 import {type ChangeEvent, useEffect} from "react";
+
+export interface SearchPropsType {
+  value: string;
+  onChangeValue: (value: string) => void;
+}
 
 const Search = ({value, onChangeValue}: SearchPropsType) => {
 
-  const debouncedQuery = useDebounce(value, 1000);
+  const debouncedQuery = useDebounce({value, delay: 1000});
 
   useEffect(() => {
     onChangeValue(debouncedQuery);

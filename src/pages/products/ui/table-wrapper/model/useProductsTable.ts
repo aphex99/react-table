@@ -1,10 +1,7 @@
 import {productsApi} from "@/pages/products/api/products.api.ts";
 import {ITEMS_ON_PAGE} from "@/pages/products/config/tableHeaders.ts";
+import type {UseProductsTableParamsType, UseProductsTableReturnType} from "@/pages/products/model/types.ts";
 import {useTableSort} from "@/pages/products/ui/table-wrapper/model/useTableSort.ts";
-import type {
-  UseProductsTableParamsType,
-  UseProductsTableReturnType
-} from "@/pages/products/ui/table-wrapper/tableWrapperTypes.ts";
 import {keepPreviousData, useQuery} from "@tanstack/react-query";
 import {useState} from "react";
 

@@ -1,8 +1,13 @@
 import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
 import Button from "@/shared/ui/button/Button.tsx";
-import type {PaginationPropsType} from "@/shared/ui/pagination/paginationTypes.ts";
-import {usePagination} from "@/shared/ui/pagination/usePagination.ts";
+import {usePagination} from "@/shared/ui/pagination/model/usePagination.ts";
 import styles from "./Pagination.module.scss";
+
+export interface PaginationPropsType {
+  pagesCount: number;
+  currentPage: number;
+  onChange: (page: number) => void;
+}
 
 const Pagination = ({pagesCount, currentPage, onChange}: PaginationPropsType) => {
 

@@ -1,11 +1,14 @@
 import {ITEMS_ON_PAGE} from "@/pages/products/config/tableHeaders.ts";
 import TableHeader from "@/pages/products/ui/table-header/TableHeader.tsx";
 import {useProductsTable} from "@/pages/products/ui/table-wrapper/model/useProductsTable.ts";
-import type {TableWrapperPropsType} from "@/pages/products/ui/table-wrapper/tableWrapperTypes.ts";
 import Table from "@/pages/products/ui/table/Table.tsx";
 import Pagination from "@/shared/ui/pagination/Pagination.tsx";
 import {useEffect} from "react";
 import toast from "react-hot-toast";
+
+export interface TableWrapperPropsType {
+  searchQuery: string;
+}
 
 const TableWrapper = ({searchQuery}: TableWrapperPropsType) => {
   const {products, total, isLoading, currentPage, onChangePage, handleSort} = useProductsTable({searchQuery});

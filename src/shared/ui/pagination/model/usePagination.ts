@@ -1,5 +1,9 @@
-import {DOTS} from "@/shared/ui/pagination/consts.ts";
-import type {UsePaginationParamsType} from "@/shared/ui/pagination/paginationTypes.ts";
+export interface UsePaginationParamsType {
+  pagesCount: number;
+  currentPage: number;
+}
+
+export const DOTS = '…';
 
 const range = (start: number, end: number) => {
   const length = Math.max(0, end - start + 1);

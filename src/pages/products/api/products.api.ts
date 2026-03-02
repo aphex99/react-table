@@ -1,7 +1,4 @@
-import type {
-  ProductsRequestType,
-  ProductsResponseType
-} from "@/pages/products/productsTypes.ts";
+import type {ProductsRequestType, ProductsResponseType} from "@/pages/products/api/types.ts";
 import {axiosInstance} from "@/shared/config/axios/axios.ts";
 
 export const productsApi = {

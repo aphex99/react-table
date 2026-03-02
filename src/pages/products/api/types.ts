@@ -1,18 +1,9 @@
-import type {ProductFields} from "@/pages/products/ui/table/tableTypes.ts";
+import type {ProductType} from "@/entities/product/model/types.ts";
+import type {ProductFields} from "../model/types.ts";
 
 export interface ProductsResponseType {
   products: ProductType[];
   total: number;
-}
-
-export interface ProductType {
-  id: number;
-  title: string;
-  category: string;
-  price: number;
-  sku: string;
-  brand: string;
-  rating: number;
 }
 
 export interface ProductsRequestType {

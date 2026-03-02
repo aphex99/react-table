@@ -1,4 +1,4 @@
-import AddProductForm from "@/pages/products/ui/table-header/add-product-form/AddProductForm.tsx";
+import AddProduct from "@/features/add-product-form/ui/AddProduct.tsx";
 import Button from "@/shared/ui/button/Button.tsx";
 import PlusIcon from '@/shared/assets/icons/plus.svg?react';
 import {useState} from "react";
@@ -18,7 +18,7 @@ const TableHeader = () => {
       <Button className={styles.button} onClick={openAddForm}>
         <PlusIcon className={styles.plus_icon}/>Добавить
       </Button>
-      {showAddForm && <AddProductForm onCloseForm={() => setShowAddForm(false)}/>}
+      {showAddForm && <AddProduct onCloseForm={() => setShowAddForm(false)}/>}
     </div>
   );
 };
