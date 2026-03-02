@@ -1,11 +1,11 @@
+import {useLogin} from "@/pages/auth/api/useLogin.ts";
+import {loginSchema} from "@/pages/auth/config/loginSchema.ts";
+import {emailToUserNameMap} from "@/pages/auth/model/emailToUserNameMap.ts";
 import {SpinnerLoader} from "@/shared/ui/spinner-loader/SpinnerLoader.tsx";
 import {useNavigate} from "react-router-dom";
-import {loginSchema} from "./config/loginSchema.ts";
-import {emailToUserNameMap} from "./model/emailToUserNameMap.ts";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {useState} from "react";
-import {useLogin} from "./api/useLogin.ts";
-import type {AuthFormType} from "./authTypes.ts";
+import type {AuthFormType} from "@/pages/auth/model/authTypes.ts";
 
 import EyeCrossedIcon from '@/shared/assets/icons/eye-crossed.svg?react';
 import EyeIcon from '@/shared/assets/icons/eye.svg?react';
@@ -43,14 +43,9 @@ const Auth = () => {
 
   const EyeIcons = showPassword ? EyeIcon : EyeCrossedIcon;
 
-  const handleShowPassword = () => {
-    setShowPassword(prev => !prev);
-  };
-
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-
         <div className={styles.input_container}>
           <label htmlFor="username">emily.johnson@x.dummyjson.com</label>
           <input type="text" id={"username"} {...register('username')} onChange={() => {
@@ -67,13 +62,16 @@ const Auth = () => {
               {...register('password')} onChange={() => {
               if (errors.password) clearErrors('password');
             }}/>
-            <EyeIcons className={styles.eye_icons} onClick={handleShowPassword}/>
+            <EyeIcons
+              className={styles.eye_icons}
+              onClick={() => setShowPassword(prev => !prev)}
+            />
           </div>
           {errors.password && (<span>{errors.password.message}</span>)}
         </div>
 
         <input type="checkbox" {...register('remember')}/>
-        <input type="submit" disabled={isPending}/>
+        <input type="submit" disabled={isPending} value={'Log In'}/>
       </form>
 
       {showLoader && <SpinnerLoader/>}

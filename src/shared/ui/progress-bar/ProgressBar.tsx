@@ -14,7 +14,7 @@ const ProgressBar = ({isLoading}: ProgressBarPropsType) => {
       interval = setInterval(() => {
         setProgress(prev => {
           if (prev >= 96) return prev;
-          return prev + 5;
+          return prev + 30;
         });
       }, 100);
     } else {
@@ -28,10 +28,9 @@ const ProgressBar = ({isLoading}: ProgressBarPropsType) => {
           return prev + 10;
         });
       }, 100);
-
-      return () => clearInterval(interval);
-
     }
+
+    return () => clearInterval(interval);
   }, [isLoading]);
 
   return (

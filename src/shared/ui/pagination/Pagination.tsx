@@ -1,20 +1,19 @@
-import {ITEMS_ON_PAGE} from "@/pages/products/ui/table-wrapper/config/consts.ts";
 import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
 import Button from "@/shared/ui/button/Button.tsx";
 import type {PaginationPropsType} from "@/shared/ui/pagination/paginationTypes.ts";
 import {usePagination} from "@/shared/ui/pagination/usePagination.ts";
 import styles from "./Pagination.module.scss";
 
-const Pagination = ({pageCount, currentPage, onChange}: PaginationPropsType) => {
+const Pagination = ({pagesCount, currentPage, onChange}: PaginationPropsType) => {
 
-  const paginationRange = usePagination({pageCount, currentPage});
+  const paginationRange = usePagination({pagesCount, currentPage});
   const showPages = paginationRange.length >= 2;
   const isFirstPage = currentPage <= 1;
-  const isLastPage = currentPage >= pageCount;
+  const isLastPage = currentPage >= pagesCount;
 
   const goTo = (page: number) => {
-    if (page < 1 || page > pageCount || page === currentPage) return;
-    onChange(page, ITEMS_ON_PAGE);
+    if (page < 1 || page > pagesCount || page === currentPage) return;
+    onChange(page);
   };
 
   const onPrev = () => goTo(currentPage - 1);

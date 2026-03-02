@@ -1,3 +1,5 @@
+import type {ProductFields} from "@/pages/products/ui/table/tableTypes.ts";
+
 export interface ProductsResponseType {
   products: ProductType[];
   total: number;
@@ -14,8 +16,9 @@ export interface ProductType {
 }
 
 export interface ProductsRequestType {
+  searchQuery: string;
   limit: number;
   skip: number;
-  sortName?: string | null;
+  sortName?: ProductFields | null;
   sortOrder?: 'asc' | 'desc' | null;
 }

@@ -1,13 +1,24 @@
 import {TABLE_HEADERS} from "@/pages/products/config/tableHeaders.ts";
 import type {TablePropsType} from "@/pages/products/ui/table/tableTypes.ts";
+import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
+import SortIcon from "@/shared/assets/icons/sort1.svg?react";
+import styles from './Table.module.scss';
 
-const Table = ({products}: TablePropsType) => {
+const Table = ({products, handleSort}: TablePropsType) => {
   return (
     <table>
       <thead>
       <tr>
         <th><input type="checkbox"/></th>
-        {TABLE_HEADERS.map((header => <th key={header}>{header}</th>))}
+        {TABLE_HEADERS.map((header => (
+          <th key={header.sortKey}>
+            <span>{header.label}</span>
+            {header.sortKey === 'rating' || header.sortKey === 'price' ?
+              <ButtonIcon className={styles.buttonIcon}
+                          onClick={() => handleSort({field: header.sortKey})}><SortIcon
+                className={styles.icon}/></ButtonIcon> : null}
+          </th>
+        )))}
       </tr>
       </thead>
       <tbody>

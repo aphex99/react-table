@@ -1,37 +1,31 @@
-import {productsApi} from "@/pages/products/api/products.api.ts";
-import {ITEMS_ON_PAGE} from "@/pages/products/ui/table-wrapper/config/consts.ts";
+import {ITEMS_ON_PAGE} from "@/pages/products/config/tableHeaders.ts";
+import TableHeader from "@/pages/products/ui/table-header/TableHeader.tsx";
+import {useProductsTable} from "@/pages/products/ui/table-wrapper/model/useProductsTable.ts";
+import type {TableWrapperPropsType} from "@/pages/products/ui/table-wrapper/tableWrapperTypes.ts";
 import Table from "@/pages/products/ui/table/Table.tsx";
 import Pagination from "@/shared/ui/pagination/Pagination.tsx";
-import {useQuery} from "@tanstack/react-query";
-import {useState} from "react";
+import {useEffect} from "react";
+import toast from "react-hot-toast";
 
-const TableWrapper = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const skip = (currentPage - 1) * ITEMS_ON_PAGE;
-  // const [sortName, setSortName] = useState(null);
-  // const [sortOrder, setSortOrder] = useState(undefined);
+const TableWrapper = ({searchQuery}: TableWrapperPropsType) => {
+  const {products, total, isLoading, currentPage, onChangePage, handleSort} = useProductsTable({searchQuery});
+  const pagesCount = Math.ceil(total / ITEMS_ON_PAGE);
 
-  const {data} = useQuery({
-    queryKey: ['products', currentPage],
-    queryFn: () => productsApi.getProducts({
-      limit: ITEMS_ON_PAGE, skip,
-      // sortName, sortOrder
-    })
-  });
+  useEffect(() => {
+    onChangePage(1);
+  }, [searchQuery, onChangePage]);
 
-  if (!data?.data) return null;
-  const {products, total} = data.data;
+  if (isLoading && !products.length) return 'Skeleton...!!!!!!!!!!!!!!!!!!!';
 
-  const pageCount = Math.ceil(total / ITEMS_ON_PAGE);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+  if (!products.length) {
+    toast('No products found');
+  }
 
   return (
     <div>
-      <Table products={products}/>
-      <Pagination pageCount={pageCount} currentPage={currentPage} onChange={handlePageChange}/>
+      <TableHeader/>
+      <Table products={products} handleSort={handleSort}/>
+      <Pagination pagesCount={pagesCount} currentPage={currentPage} onChange={(page: number) => onChangePage(page)}/>
     </div>
   );
 };
