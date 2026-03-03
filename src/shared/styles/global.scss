@@ -17,6 +17,7 @@
   --color-filled-checkbox: #3c538e;
 
   // products
+  --all-black: #000;
   --black: #202020;
   --black-h4: #333;
   --gray-input: #f3f3f3;
@@ -43,6 +44,7 @@
   --font-color-label-dark-gray: #9c9c9c;
   --font-color-input: rgba(35, 35, 35, 0.54);
   --font-button-white: #ebf3ea;
+  --font-color-title-black: #161919;
 
   //h2
   --font-size-h2: 40px;
@@ -69,6 +71,10 @@
   --font-size-additional-text: 16px;
   --font-line-additional-text: 150%;
   --font-additional-text: var(--font-size-additional-text) / var(--font-line-additional-text) var(--font-medium);
+
+  //bold title
+  --font-size-title: 16px;
+  --font-title: var(--font-size-title) var(--font-semi-bold);
 
   //error text
   --font-size-error-text: 12px;

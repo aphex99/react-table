@@ -14,10 +14,10 @@ thead .row {
 }
 
 .th_checkbox {
-    width: 22px;
-    padding-left: 18px;
-    padding-right: 20px;
-    text-align: center;
+  width: 22px;
+  padding-left: 18px;
+  padding-right: 20px;
+  text-align: center;
 }
 
 .checkbox {
@@ -82,7 +82,7 @@ th:nth-child(2), td:nth-child(2) {
   align-items: start;
   gap: 6px;
 
-  p {
+  span {
     margin: 0;
     width: 210px;
     white-space: nowrap;
@@ -91,12 +91,31 @@ th:nth-child(2), td:nth-child(2) {
   }
 }
 
+.product_title {
+  font: var(--font-title);
+  color: var(--font-color-title-black);
+}
+
 .image_square {
   width: 48px;
   height: 48px;
   background: var(--gray-image);
   border: 1px solid var(--gray-button);
   border-radius: 8px;
+}
+
+.product_brand {
+  font: var(--font-title);
+  color: var(--all-black);
+}
+
+.product_category {
+  font: var(--font-placeholder);
+  color: var(--gray-theaders);
+}
+
+.rating_highlight {
+  color: var(--color-error);
 }
 
 .product_buttons {

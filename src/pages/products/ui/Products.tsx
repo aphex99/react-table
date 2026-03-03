@@ -13,7 +13,7 @@ const Products = () => {
 
   return (
     <div className={styles.wrapper}>
-      {!!isFetching && <ProgressBar isLoading={!!isFetching}/>}
+      {isFetching > 0 && <ProgressBar isLoading={!!isFetching}/>}
       <div className={styles.container}>
         <SearchWrapper searchQuery={searchQuery} onChangeSearchQuery={setSearchQuery}/>
         <TableWrapper searchQuery={searchQuery}/>

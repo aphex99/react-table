@@ -16,12 +16,14 @@ const AddProduct = ({onCloseForm}: AddProductPropsType) => {
 
   return (
     <div className={styles.wrapper}>
-      <ButtonIcon className={styles.close_button} onClick={() => onCloseButton()}><CloseIcon
-        className={styles.close_icon}/></ButtonIcon>
-      <Card>
-        <h3 className={styles.heading}>Добавление довара</h3>
-        <AddProductForm onCloseForm={onCloseForm}/>
-      </Card>
+      <div className={styles.container}>
+        <ButtonIcon className={styles.close_button} onClick={() => onCloseButton()}><CloseIcon
+          className={styles.close_icon}/></ButtonIcon>
+        <Card>
+          <h3 className={styles.heading}>Добавление товара</h3>
+          <AddProductForm onCloseForm={onCloseForm}/>
+        </Card>
+      </div>
     </div>
   );
 };

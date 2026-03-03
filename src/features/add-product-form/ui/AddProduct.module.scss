@@ -1,8 +1,14 @@
 .wrapper {
   position: fixed;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -30%);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
 }
 
 .heading {
@@ -12,9 +18,9 @@
 }
 
 .close_button {
-  position: fixed;
-  right: 20px;
-  top: 20px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -26,6 +32,7 @@
 .close_icon {
   width: 24px;
   height: 24px;
+
   path {
     fill: var(--blue-dark-button);
   }
