@@ -1,3 +1,4 @@
+import Button from "@/shared/ui/button/Button.tsx";
 import {
   addProductSchema,
   type AddProductSchemaType
@@ -32,11 +33,14 @@ const AddProductForm = ({onCloseForm}: AddProductFormPropsType) => {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.input_container}>
-        <label htmlFor="title">Наименование</label>
+        <label htmlFor="title"
+               className={styles.label}
+        >Наименование</label>
         <input
           type="text"
           id={"title"}
           {...register("title")}
+          className={styles.input}
           onChange={() => {
             if (errors.title) clearErrors('title');
           }}
@@ -44,10 +48,13 @@ const AddProductForm = ({onCloseForm}: AddProductFormPropsType) => {
         {errors.title && <span className={styles.error_description}>{errors?.title.message}</span>}
       </div>
       <div className={styles.input_container}>
-        <label htmlFor="brand">Вендор</label>
+        <label htmlFor="brand"
+               className={styles.label}
+        >Вендор</label>
         <input
           type="text"
           id={"brand"}
+          className={styles.input}
           {...register("brand")}
           onChange={() => {
             if (errors.brand) clearErrors('brand');
@@ -55,10 +62,13 @@ const AddProductForm = ({onCloseForm}: AddProductFormPropsType) => {
         {errors.brand && <span className={styles.error_description}>{errors?.brand.message}</span>}
       </div>
       <div className={styles.input_container}>
-        <label htmlFor="sku">Артикул</label>
+        <label htmlFor="sku"
+               className={styles.label}
+        >Артикул</label>
         <input
           type="text"
           id={"sku"}
+          className={styles.input}
           {...register("sku")}
           onChange={() => {
             if (errors.sku) clearErrors('sku');
@@ -66,19 +76,20 @@ const AddProductForm = ({onCloseForm}: AddProductFormPropsType) => {
         {errors.sku && <span className={styles.error_description}>{errors?.sku.message}</span>}
       </div>
       <div className={styles.input_container}>
-        <label htmlFor="price">Цена, ₽</label>
+        <label htmlFor="price"
+               className={styles.label}
+        >Цена, ₽</label>
         <input
-          type="number"
+          type="text"
           id={"price"}
+          className={styles.input}
           {...register("price")}
           onChange={() => {
             if (errors.price) clearErrors('price');
           }}/>
         {errors.price && <span className={styles.error_description}>{errors?.price.message}</span>}
       </div>
-      <div>
-        <input type="submit" value={'Добавить'}/>
-      </div>
+      <Button type={"submit"} className={styles.button}>Добавить</Button>
     </form>
   );
 };

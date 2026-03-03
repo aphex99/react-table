@@ -1,0 +1,32 @@
+.wrapper {
+  width: 1024px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.input {
+  box-sizing: border-box;
+  border: none;
+  height: 48px;
+  width: 100%;
+  padding-left: 52px;
+  outline: none;
+  background: var(--gray-input);
+  font: var(--font-text);
+  letter-spacing: var(--font-letter-spacing);
+  color: var(--font-color-black);
+  border-radius: 8px;
+
+  &::placeholder {
+    font: var(--font-placeholder);
+  }
+}
+
+.search_icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}

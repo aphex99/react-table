@@ -1,16 +1,14 @@
-.container {
+.wrapper {
   position: fixed;
   top: 30%;
   left: 50%;
   transform: translate(-50%, -30%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid gray;
-  width: 300px;
-  height: 450px;
-  background: #f1f1f6; // REMOVE!!!!
+}
+
+.heading {
+  font: var(--font-h3);
+  color: var(--font-color-black);
+  margin: 0 0 30px 0;
 }
 
 .close_button {
@@ -26,6 +24,9 @@
 }
 
 .close_icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+  path {
+    fill: var(--blue-dark-button);
+  }
 }

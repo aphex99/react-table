@@ -4,30 +4,29 @@ import {useProductsTable} from "@/pages/products/ui/table-wrapper/model/useProdu
 import Table from "@/pages/products/ui/table/Table.tsx";
 import Pagination from "@/shared/ui/pagination/Pagination.tsx";
 import {useEffect} from "react";
-import toast from "react-hot-toast";
+
+import styles from './TableWrapper.module.scss';
 
 export interface TableWrapperPropsType {
   searchQuery: string;
 }
 
 const TableWrapper = ({searchQuery}: TableWrapperPropsType) => {
-  const {products, total, isLoading, currentPage, onChangePage, handleSort} = useProductsTable({searchQuery});
+  const {products, total, isLoading, currentPage, onChangePage, handleSort, sort} = useProductsTable({searchQuery});
   const pagesCount = Math.ceil(total / ITEMS_ON_PAGE);
 
   useEffect(() => {
     onChangePage(1);
   }, [searchQuery, onChangePage]);
 
-  if (isLoading && !products.length) return 'Skeleton...!!!!!!!!!!!!!!!!!!!';
+  if (isLoading && !products.length) return 'Skeleton...';
 
-  if (!products.length) {
-    toast('No products found');
-  }
+  if (!products.length) return 'Products not found';
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <TableHeader/>
-      <Table products={products} handleSort={handleSort}/>
+      <Table products={products} handleSort={handleSort} sortState={sort}/>
       <Pagination pagesCount={pagesCount} currentPage={currentPage} onChange={(page: number) => onChangePage(page)}/>
     </div>
   );
