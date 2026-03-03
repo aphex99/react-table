@@ -35,6 +35,7 @@ export const useLogin = ({remember, setError, handleLoader}: UseLoginType) => {
     onError: (error: ErrorResponseType) => {
       if (error.status === 400 || error.status === 401) {
         setError('password', {type: 'custom', message: 'Invalid email or password'});
+        setError('username', {type: 'custom', message: 'Invalid email or password'});
       }
     }
   });

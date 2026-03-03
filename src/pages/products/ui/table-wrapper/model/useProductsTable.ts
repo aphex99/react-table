@@ -30,6 +30,7 @@ export const useProductsTable = ({searchQuery}: UseProductsTableParamsType): Use
     isError,
     currentPage,
     onChangePage: setCurrentPage,
-    handleSort
+    handleSort,
+    sort
   };
 };

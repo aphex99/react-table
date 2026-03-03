@@ -25,4 +25,5 @@ export type UseProductsTableReturnType = {
   currentPage: number;
   onChangePage: (page: number) => void;
   handleSort: (field: HandleSortParametersType) => void;
+  sort: SortStateType
 };
