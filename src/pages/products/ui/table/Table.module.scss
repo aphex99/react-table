@@ -1,4 +1,61 @@
-.buttonIcon {
+.table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead .row {
+  color: var(--gray-theaders);
+}
+
+.row {
+  height: 70px;
+  border-bottom: 1px solid var(--gray-border);
+}
+
+.th_checkbox {
+  width: 22px;
+  padding-left: 18px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.checkbox {
+  appearance: none;
+  position: relative;
+  text-align: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--gray-theaders);
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 1px solid var(--blue);
+  }
+
+  &:checked {
+    background: var(--color-filled-checkbox);
+    border-radius: 5px;
+  }
+}
+
+
+.checkbox_label {
+  user-select: none;
+  font: var(--font-additional-text);
+  color: var(--font-color-label-dark-gray);
+}
+
+th:nth-child(2), td:nth-child(2) {
+  text-align: left;
+}
+
+.th, .td {
+  text-align: center;
+}
+
+.buttonSortIcon {
   width: fit-content;
   height: fit-content;
   background: none;
@@ -9,4 +66,78 @@
 .icon {
   height: 20px;
   width: 20px;
+}
+
+.product_title_wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 18px;
+}
+
+.product_title_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 6px;
+
+  span {
+    margin: 0;
+    width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.product_title {
+  font: var(--font-title);
+  color: var(--font-color-title-black);
+}
+
+.image_square {
+  width: 48px;
+  height: 48px;
+  background: var(--gray-image);
+  border: 1px solid var(--gray-button);
+  border-radius: 8px;
+}
+
+.product_brand {
+  font: var(--font-title);
+  color: var(--all-black);
+}
+
+.product_category {
+  font: var(--font-placeholder);
+  color: var(--gray-theaders);
+}
+
+.rating_highlight {
+  color: var(--color-error);
+}
+
+.product_buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.add_property_button {
+  border: none;
+  background: var(--blue-add-button);
+  width: 52px;
+  height: 27px;
+  border-radius: 23px;
+  padding: 0;
+}
+
+.settings_button {
+  border: none;
+  background: none;
+  padding: 0;
+  width: 32px;
+  height: 32px;
 }

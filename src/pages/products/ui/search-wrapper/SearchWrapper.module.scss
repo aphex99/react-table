@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 105px;
+  width: 100%;
+  background: var(--white);
+}
+
+.heading {
+  position: absolute;
+  left: 30px;
+  font: var(--font-h3);
+  color: var(--black);
+}

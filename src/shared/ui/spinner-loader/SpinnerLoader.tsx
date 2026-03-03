@@ -1,5 +1,5 @@
-import styles from "./SpinnerLoader.module.scss";
 import {ScaleLoader} from "react-spinners";
+import styles from "./SpinnerLoader.module.scss";
 
 export const SpinnerLoader = () => {
   return (

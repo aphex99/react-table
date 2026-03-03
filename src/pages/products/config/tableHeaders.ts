@@ -1,8 +1,11 @@
-import type {TableHeaderType} from "@/pages/products/ui/table/tableTypes.ts";
+import type {ProductFields} from "../model/types.ts";
+
+export interface TableHeaderType {
+  label: string;
+  sortKey: ProductFields;
+}
 
 export const ITEMS_ON_PAGE = 5;
-
-export const _TABLE_HEADERS = ['Наименование', 'Вендор', 'Артикул', 'Оценка', 'Цена, ₽'];
 
 export const TABLE_HEADERS: TableHeaderType[] = [
   {label: 'Наименование', sortKey: 'title'},

@@ -1,39 +1,79 @@
-.container {
+.wrapper {
+  width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  background: var(--auth-bg);
 }
 
-.form {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 32px;
 }
 
-.input_container {
+.heading_container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.input_password_container {
+.h2 {
+  margin: 0 0 12px;
+  font: var(--font-h2);
+  letter-spacing: var(--font-letter-spacing);
+  color: var(--font-color-black);
+  text-shadow: 0 -2px 1px var(--font-shadow-h2);
+}
+
+.heading_description {
+  margin: 0;
+  font: var(--font-text);
+  background: var(--font-color-gray);
+  color: transparent;
+  background-clip: text;
+  text-shadow: 0 1px 1px var(--font-shadow-gray);
+}
+
+.underline_container {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  gap: 10px;
 }
 
-.eye_icons {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  padding: 0 10px 0 5px;
-  transform: translateY(-50%);
+.hr {
+  width: 175px;
+  border: 1px solid var(--gray);
 }
 
+.underline_text {
+  font: var(--font-additional-text);
+  background: var(--font-color-gray-light);
+  color: transparent;
+  background-clip: text;
+  text-shadow: 0 1px 1px var(--font-shadow-additional-text);
+}
+
+.create_account_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.create_account_text {
+  font: var(--font-text);
+  color: var(--font-color-dark-gray);
+}
+
+.create_account_link {
+  font: var(--font-text);
+  color: var(--blue);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}

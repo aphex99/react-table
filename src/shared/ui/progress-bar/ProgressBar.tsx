@@ -1,6 +1,9 @@
-import type {ProgressBarPropsType} from "@/shared/ui/progress-bar/progressBarTypes.ts";
 import {type CSSProperties, useEffect, useState} from "react";
 import styles from './ProgressBar.module.scss';
+
+export interface ProgressBarPropsType {
+  isLoading: boolean;
+}
 
 const ProgressBar = ({isLoading}: ProgressBarPropsType) => {
 

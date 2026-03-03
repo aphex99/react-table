@@ -1,4 +1,4 @@
-import type {HandleSortParametersType, SortStateType} from "@/pages/products/ui/table-wrapper/tableWrapperTypes.ts";
+import type {HandleSortParametersType, SortStateType} from "@/pages/products/model/types.ts";
 import {useState} from "react";
 
 export const useTableSort = () => {

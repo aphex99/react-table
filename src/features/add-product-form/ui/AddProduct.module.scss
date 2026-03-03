@@ -1,0 +1,39 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+}
+
+.heading {
+  font: var(--font-h3);
+  color: var(--font-color-black);
+  margin: 0 0 30px 0;
+}
+
+.close_button {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+}
+
+.close_icon {
+  width: 24px;
+  height: 24px;
+
+  path {
+    fill: var(--blue-dark-button);
+  }
+}
