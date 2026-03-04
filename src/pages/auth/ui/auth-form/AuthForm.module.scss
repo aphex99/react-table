@@ -1,0 +1,132 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 20px;
+  width: 400px;
+}
+
+.label {
+  font: var(--font-text);
+  letter-spacing: var(--font-letter-spacing);
+  color: var(--font-color-black);
+  margin-bottom: 6px;
+  user-select: none;
+}
+
+.input {
+  height: 55px;
+  width: 100%;
+  padding: 14px 0 14px 54px;
+  box-sizing: border-box;
+  font: var(--font-text);
+  letter-spacing: var(--font-letter-spacing);
+  color: var(--font-color-black);
+  border-radius: 12px;
+  border: 1.5px solid var(--gray);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--font-color-input);
+}
+
+.input_error {
+  border: 1px solid var(--color-error);
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.input_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.left_icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  padding-left: 16px;
+  transform: translateY(-50%);
+}
+
+.icon_button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-right: 16px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+}
+
+.field_error {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font: var(--font-error-text);
+  color: var(--color-error);
+}
+
+.checkbox_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  input {
+    appearance: none;
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--gray-theaders);
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 1px solid var(--blue);
+    }
+
+    &:checked {
+      background: var(--color-filled-checkbox);
+      border-radius: 5px;
+    }
+  }
+}
+
+.checkbox_label {
+  user-select: none;
+  font: var(--font-additional-text);
+  color: var(--font-color-label-dark-gray);
+}
+
+.button {
+  width: 100%;
+  height: 54px;
+  border-radius: 12px;
+  border: none;
+  background: var(--blue-dark);
+  color: var(--white);
+  font: var(--font-button);
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: var(--blue-light);
+  }
+
+  &:disabled {
+    background: var(--blue-disabled);
+  }
+}
