@@ -8,7 +8,7 @@ import Auth from "@/pages/auth/ui/Auth.tsx";
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path={"/*"} element={<NotFound/>}/>
+      <Route path={"*"} element={<NotFound/>}/>
       <Route path={"/items"} element={(<ProtectedRoute><Products/></ProtectedRoute>)}/>
       <Route path={"/"} element={<PublicRoute><Auth/></PublicRoute>}/>
     </Routes>
