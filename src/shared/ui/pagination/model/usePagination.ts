@@ -11,7 +11,6 @@ const range = (start: number, end: number) => {
 };
 
 export const usePagination = ({pagesCount, currentPage}: UsePaginationParamsType) => {
-
   const siblings = 1;
   const totalPageNumbers = 2 * siblings + 5;
 
