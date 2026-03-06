@@ -1,7 +1,9 @@
-import {useDebounce} from "@/shared/libs/useDebounce.tsx";
 import clsx from "clsx";
 import {type ChangeEvent, useEffect} from "react";
+
+import {useDebounce} from "@/shared/libs/useDebounce.tsx";
 import SearchIcon from '@/shared/assets/icons/search.svg?react';
+
 import styles from "./Search.module.scss";
 
 export interface SearchPropsType {

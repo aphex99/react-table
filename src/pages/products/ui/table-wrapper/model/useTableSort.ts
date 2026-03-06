@@ -1,5 +1,6 @@
-import type {HandleSortParametersType, SortStateType} from "@/pages/products/model/types.ts";
 import {useState} from "react";
+
+import type {HandleSortParametersType, SortStateType} from "../../../model/types.ts";
 
 export const useTableSort = () => {
 
@@ -16,5 +17,4 @@ export const useTableSort = () => {
   };
 
   return {sort, handleSort};
-
 };

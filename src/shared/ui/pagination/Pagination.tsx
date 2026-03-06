@@ -1,23 +1,30 @@
-import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
-import Button from "@/shared/ui/button/Button.tsx";
-import {usePagination} from "@/shared/ui/pagination/model/usePagination.ts";
-import ArrowLeft from '@/shared/assets/icons/arrow-left.svg?react';
-import ArrowRight from '@/shared/assets/icons/arrow-right.svg?react';
 import clsx from "clsx";
+
+import ButtonIcon from "../button-icon/ButtonIcon.tsx";
+import Button from "../button/Button.tsx";
+import {getPaginationRange} from "./model/getPaginationRange.ts";
+
+import ArrowLeft from '../../assets/icons/arrow-left.svg?react';
+import ArrowRight from '../../assets/icons/arrow-right.svg?react';
+
 import styles from "./Pagination.module.scss";
 
 export interface PaginationPropsType {
-  pagesCount: number;
   currentPage: number;
+  totalCount: number;
+  itemsPerPage: number;
   onChange: (page: number) => void;
 }
 
-const Pagination = ({pagesCount, currentPage, onChange}: PaginationPropsType) => {
+const Pagination = ({totalCount, itemsPerPage, currentPage, onChange}: PaginationPropsType) => {
 
-  const paginationRange = usePagination({pagesCount, currentPage});
+  const pagesCount = Math.ceil(totalCount / itemsPerPage);
+
+  const paginationRange = getPaginationRange({pagesCount, currentPage});
   const showPages = paginationRange.length >= 2;
   const isFirstPage = currentPage <= 1;
   const isLastPage = currentPage >= pagesCount;
+  const currentItems = Math.min(itemsPerPage * currentPage, totalCount);
 
   const goTo = (page: number) => {
     if (page < 1 || page > pagesCount || page === currentPage) return;
@@ -30,7 +37,7 @@ const Pagination = ({pagesCount, currentPage, onChange}: PaginationPropsType) =>
   if (!showPages) return null;
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <nav>
         <ul className={styles.list}>
           <li>
@@ -60,6 +67,11 @@ const Pagination = ({pagesCount, currentPage, onChange}: PaginationPropsType) =>
             </ButtonIcon></li>
         </ul>
       </nav>
+      <div className={styles.description}>
+        Показано
+        <span className={styles.description_number}> {currentItems}</span> из
+        <span className={styles.description_number}> {totalCount}</span>
+      </div>
     </div>
   );
 };

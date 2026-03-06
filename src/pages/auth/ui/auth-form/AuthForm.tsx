@@ -1,17 +1,20 @@
-import {useLogin} from "@/pages/auth/api/useLogin.ts";
-import {type LoginFormSchemaType, loginSchema} from "@/pages/auth/config/loginSchema.ts";
-import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
-import Button from "@/shared/ui/button/Button.tsx";
 import {zodResolver} from "@hookform/resolvers/zod";
-import clsx from "clsx";
-import {useState} from "react";
 import {useForm, useWatch} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
+import clsx from "clsx";
+import {useState} from "react";
+
+import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
+import Button from "@/shared/ui/button/Button.tsx";
 import EyeIcon from '@/shared/assets/icons/eye.svg?react';
 import EyeCrossedIcon from '@/shared/assets/icons/eye-crossed.svg?react';
 import UserIcon from '@/shared/assets/icons/user.svg?react';
 import LockIcon from '@/shared/assets/icons/lock.svg?react';
 import CrossIcon from '@/shared/assets/icons/cross.svg?react';
+
+import {useLogin} from "../../api/useLogin.ts";
+import {type LoginFormSchemaType, loginSchema} from "../../config/loginSchema.ts";
+
 import styles from "./AuthForm.module.scss";
 
 interface AuthFormPropsType {
@@ -49,11 +52,7 @@ const AuthForm = ({handleLoader}: AuthFormPropsType) => {
     mutate({username, password}, {onSuccess: () => navigate('/items')});
   };
 
-
   const EyeIcons = showPassword ? EyeIcon : EyeCrossedIcon;
-
-  // emilys
-  // emilyspass
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -71,7 +70,7 @@ const AuthForm = ({handleLoader}: AuthFormPropsType) => {
               }
             })} />
           <ButtonIcon type={"button"}
-            className={styles.icon_button}
+                      className={styles.icon_button}
                       onClick={() => resetField('username', {keepError: false})}
           >
             <CrossIcon/>
@@ -94,7 +93,7 @@ const AuthForm = ({handleLoader}: AuthFormPropsType) => {
               }
             })}/>
           <ButtonIcon type={"button"}
-            className={styles.icon_button}
+                      className={styles.icon_button}
                       onClick={() => setShowPassword(prev => !prev)}
           >
             <EyeIcons

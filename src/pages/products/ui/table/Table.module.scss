@@ -2,9 +2,23 @@
   table-layout: fixed;
   border-collapse: collapse;
   width: 100%;
+
+  &:has(thead .checkbox:checked) {
+
+    tbody .checkbox {
+      background: var(--color-filled-checkbox);
+      border-radius: 5px;
+    }
+
+    tbody .checkbox_wrapper {
+      border-left: 3px solid var(--color-filled-checkbox);
+    }
+
+  }
 }
 
 thead .row {
+  font: var(--font-title);
   color: var(--gray-theaders);
 }
 
@@ -13,11 +27,16 @@ thead .row {
   border-bottom: 1px solid var(--gray-border);
 }
 
-.th_checkbox {
+.checkbox_wrapper {
   width: 22px;
   padding-left: 18px;
   padding-right: 20px;
   text-align: center;
+  border-left: 3px solid transparent;
+
+  &:has(.checkbox:checked) {
+    border-left: 3px solid var(--color-filled-checkbox);
+  }
 }
 
 .checkbox {
@@ -40,14 +59,13 @@ thead .row {
   }
 }
 
-
-.checkbox_label {
-  user-select: none;
-  font: var(--font-additional-text);
-  color: var(--font-color-label-dark-gray);
+.th_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-th:nth-child(2), td:nth-child(2) {
+.th:nth-child(2), .td:nth-child(2) {
   text-align: left;
 }
 
@@ -61,6 +79,7 @@ th:nth-child(2), td:nth-child(2) {
   background: none;
   border: none;
   padding: 0 5px;
+  margin-top: 5px;
 }
 
 .icon {
@@ -105,7 +124,12 @@ th:nth-child(2), td:nth-child(2) {
 }
 
 .product_brand {
-  font: var(--font-title);
+  font: var(--font-brand);
+  color: var(--all-black);
+}
+
+.product_sku {
+  font: var(--font-sku);
   color: var(--all-black);
 }
 
@@ -114,8 +138,22 @@ th:nth-child(2), td:nth-child(2) {
   color: var(--gray-theaders);
 }
 
+.product_rating {
+  font: var(--font-sku);
+  color: var(--all-black);
+}
+
 .rating_highlight {
   color: var(--color-error);
+}
+
+.product_price {
+  font: var(--font-price);
+  color: var(--black-price);
+}
+
+.product_price_decimal {
+  color: var(--gray-placeholder);
 }
 
 .product_buttons {

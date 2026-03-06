@@ -1,8 +1,10 @@
-import AuthForm from "@/pages/auth/ui/auth-form/AuthForm.tsx";
+import {useState} from "react";
+
 import Card from "@/shared/ui/card/Card.tsx";
 import Logo from "@/shared/ui/logo/Logo.tsx";
 import {SpinnerLoader} from "@/shared/ui/spinner-loader/SpinnerLoader.tsx";
-import {useState} from "react";
+
+import AuthForm from "./auth-form/AuthForm.tsx";
 
 import styles from './Auth.module.scss';
 

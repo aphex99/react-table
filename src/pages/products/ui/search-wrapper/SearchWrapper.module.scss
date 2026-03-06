@@ -1,10 +1,10 @@
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+  margin-top: 20px;
   height: 105px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
   background: var(--white);
 }
 
@@ -13,4 +13,5 @@
   left: 30px;
   font: var(--font-h3);
   color: var(--black);
+  margin: 0;
 }

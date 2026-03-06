@@ -1,11 +1,14 @@
-import {ITEMS_ON_PAGE} from "@/pages/products/config/tableHeaders.ts";
-import TableHeader from "@/pages/products/ui/table-header/TableHeader.tsx";
-import {useProductsTable} from "@/pages/products/ui/table-wrapper/model/useProductsTable.ts";
-import Table from "@/pages/products/ui/table/Table.tsx";
-import Empty from "@/shared/ui/empty/Empty.tsx";
+import {useEffect} from "react";
+
+import EmptyData from "@/shared/ui/empty-page/EmptyData.tsx";
 import Pagination from "@/shared/ui/pagination/Pagination.tsx";
 import Skeleton from "@/shared/ui/skeleton/Skeleton.tsx";
-import {useEffect} from "react";
+
+import {ITEMS_ON_PAGE} from "../../config/tableHeaders.ts";
+import TableHeader from "../table-header/TableHeader.tsx";
+import Table from "../table/Table.tsx";
+
+import {useProductsTable} from "./model/useProductsTable.ts";
 
 import styles from './TableWrapper.module.scss';
 
@@ -14,22 +17,27 @@ export interface TableWrapperPropsType {
 }
 
 const TableWrapper = ({searchQuery}: TableWrapperPropsType) => {
+
   const {products, total, isLoading, currentPage, onChangePage, handleSort, sort} = useProductsTable({searchQuery});
-  const pagesCount = Math.ceil(total / ITEMS_ON_PAGE);
 
   useEffect(() => {
     onChangePage(1);
-  }, [searchQuery, onChangePage]);
+  }, [searchQuery]);
 
-  if (isLoading && !products.length) return <Skeleton count={7}/>;
+  if (isLoading && !products.length)
+    return <Skeleton count={7} skeletonClassName={styles.skeleton}
+                     wrapperClassName={styles.skeleton_wrapper}/>;
 
-  if (!products.length) return <Empty/>;
+  if (!products.length) return <EmptyData/>;
 
   return (
     <div className={styles.wrapper}>
       <TableHeader/>
       <Table products={products} handleSort={handleSort} sortState={sort}/>
-      <Pagination pagesCount={pagesCount} currentPage={currentPage} onChange={(page: number) => onChangePage(page)}/>
+      <Pagination totalCount={total}
+                  currentPage={currentPage}
+                  itemsPerPage={ITEMS_ON_PAGE}
+                  onChange={(page: number) => onChangePage(page)}/>
     </div>
   );
 };
