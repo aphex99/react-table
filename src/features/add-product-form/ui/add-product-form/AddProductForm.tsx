@@ -1,11 +1,14 @@
+import {zodResolver} from "@hookform/resolvers/zod";
+import {useForm} from "react-hook-form";
+import toast from "react-hot-toast";
+
 import Button from "@/shared/ui/button/Button.tsx";
+
 import {
   addProductSchema,
   type AddProductSchemaType
 } from "../../config/addProductSchema.ts";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {useForm} from "react-hook-form";
-import toast from "react-hot-toast";
+
 import styles from './AddProductForm.module.scss';
 
 export interface AddProductFormPropsType {

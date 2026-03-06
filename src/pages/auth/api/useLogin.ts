@@ -1,7 +1,16 @@
-import {loaderDelay} from "@/shared/libs/loaderDelay.ts";
-import {loginApi} from "./login.api.ts";
-import type {AuthRequestType, ErrorResponseType, UseLoginType} from "./types.ts";
 import {useMutation} from "@tanstack/react-query";
+import type {FieldError} from "react-hook-form";
+
+import {loaderDelay} from "@/shared/libs/loaderDelay.ts";
+
+import {loginApi} from "./login.api.ts";
+import type {AuthRequestType, ErrorResponseType} from "./types.ts";
+
+export interface UseLoginType {
+  remember?: boolean;
+  setError: (name: 'username' | 'password', error: FieldError) => void;
+  handleLoader: (showLoader: boolean) => void;
+}
 
 export const useLogin = ({remember, setError, handleLoader}: UseLoginType) => {
   const {mutate, isPending} = useMutation({

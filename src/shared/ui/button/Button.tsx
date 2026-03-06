@@ -1,4 +1,8 @@
-import type {ButtonType} from "@/shared/ui/button/buttonTypes.ts";
+import type {ButtonHTMLAttributes, ReactNode} from "react";
+
+export type ButtonType = {
+  children: ReactNode;
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 const Button = ({children, ...rest}: ButtonType) => {
   return (

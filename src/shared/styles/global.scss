@@ -1,7 +1,15 @@
 :root {
-  --font-regular: 'Inter Regular', sans-serif;
-  --font-medium: 'Inter Medium', sans-serif;
-  --font-semi-bold: 'Inter Semi Bold', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-roboto-mono: 'Roboto Mono', monospace;
+  --font-open-sans: 'Open Sans', sans-serif;
+
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  --font-letter-spacing: -1.5%;
 
   // auth
   --white: #fff;
@@ -19,6 +27,7 @@
   // products
   --all-black: #000;
   --black: #202020;
+  --black-price: #222;
   --black-h4: #333;
   --gray-input: #f3f3f3;
   --gray-button: #ececeb;
@@ -29,6 +38,12 @@
   --gray-theaders: #b2b3b9;
   --gray-border: #e2e2e2;
   --gray-image: #c4c4c4;
+  --gray-pagination: #969B9F;
+  --gray-placeholder: #999;
+
+  // not found
+  --gray-not-found-bg: #fdfdfd;
+  --gray-not-found-data-bg: #fdfdfd;
 
   --shadow: rgba(0, 0, 0, 0.04);
   --logo-shadow: rgba(0, 0, 0, 0.03);
@@ -49,52 +64,67 @@
   //h2
   --font-size-h2: 40px;
   --font-line-h2: 110%;
-  --font-h2: var(--font-size-h2) / var(--font-line-h2) var(--font-semi-bold);
+  --font-h2: var(--font-semi-bold) var(--font-size-h2) / var(--font-line-h2) var(--font-inter);
 
   //h3
   --font-size-h3: 24px;
   --font-line-h3: 120%;
   --font-letter-h3: -2%;
-  --font-h3: var(--font-size-h3) / var(--font-line-h3) var(--font-semi-bold);
+  --font-h3: var(--font-semi-bold) var(--font-size-h3) / var(--font-line-h3) var(--font-inter);
 
   //h4
   --font-size-h4: 20px;
   --font-line-h4: 20%;
-  --font-h4: var(--font-size-h4) / var(--font-line-h4) var(--font-semi-bold);
+  --font-h4: var(--font-semi-bold) var(--font-size-h4) / var(--font-line-h4) var(--font-inter);
 
   //text
   --font-size-text: 18px;
   --font-line-text: 150%;
-  --font-text: var(--font-size-text) / var(--font-line-text) var(--font-medium);
+  --font-text: var(--font-medium) var(--font-size-text) / var(--font-line-text) var(--font-inter);
+
+  //pagination text
+  --font-size-pagination-text: 18px;
+  --font-pagination-text: var(--font-regular) var(--font-size-text) var(--font-roboto);
 
   //additional text
   --font-size-additional-text: 16px;
   --font-line-additional-text: 150%;
-  --font-additional-text: var(--font-size-additional-text) / var(--font-line-additional-text) var(--font-medium);
+  --font-additional-text: var(--font-medium) var(--font-size-additional-text) / var(--font-line-additional-text) var(--font-inter);
 
   //bold title
   --font-size-title: 16px;
-  --font-title: var(--font-size-title) var(--font-semi-bold);
+  --font-title: var(--font-semi-bold) var(--font-size-title) var(--font-inter);
+
+  //brand
+  --font-size-brand: 16px;
+  --font-brand: var(--font-bold) var(--font-size-brand) var(--font-open-sans);
+
+  //sku
+  --font-size-sku: 16px;
+  --font-sku: var(--font-regular) var(--font-size-sku) var(--font-open-sans);
 
   //error text
   --font-size-error-text: 12px;
   --font-line-error-text: 150%;
-  --font-error-text: var(--font-size-error-text) / var(--font-line-error-text) var(--font-medium);
+  --font-error-text: var(--font-medium) var(--font-size-error-text) / var(--font-line-error-text) var(--font-inter);
 
   //error placeholder
   --font-size-placeholder: 14px;
   --font-line-placeholder: 124%;
-  --font-placeholder: var(--font-size-placeholder) / var(--font-line-placeholder) var(--font-regular);
+  --font-placeholder: var(--font-regular) var(--font-size-placeholder) / var(--font-line-placeholder) var(--font-inter);
 
   //button-products
   --font-size-button-products: 14px;
-  --font-button-products: var(--font-size-button-products) var(--font-semi-bold);
+  --font-button-products: var(--font-semi-bold) var(--font-size-button-products) var(--font-inter);
+
+  //price
+  --font-size-price: 16px;
+  --font-line-price: 110%;
+  --font-price: var(--font-regular) var(--font-size-price) / var(--font-line-price) var(--font-roboto-mono);
 
   //button auth
   --font-size-button: 18px;
   --font-line-button: 120%;
   --font-letter-button: -1%;
-  --font-button: var(--font-size-button) / var(--font-line-button) var(--font-semi-bold);
-
-  --font-letter-spacing: -1.5%;
+  --font-button: var(--font-semi-bold) var(--font-size-button) / var(--font-line-button) var(--font-inter);
 }

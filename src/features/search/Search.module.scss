@@ -1,9 +1,8 @@
 .wrapper {
-  width: 1024px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 1;
+  max-width: 1024px;
   position: relative;
+  margin: 0 auto;
 }
 
 .input {
@@ -11,7 +10,7 @@
   border: none;
   height: 48px;
   width: 100%;
-  padding-left: 52px;
+  padding: 0 0 0 52px;
   outline: none;
   background: var(--gray-input);
   font: var(--font-text);
@@ -21,6 +20,7 @@
 
   &::placeholder {
     font: var(--font-placeholder);
+    color: var(--gray-placeholder);
   }
 }
 

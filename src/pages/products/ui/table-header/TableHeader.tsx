@@ -1,9 +1,11 @@
+import {useState} from "react";
+
 import AddProduct from "@/features/add-product-form/ui/AddProduct.tsx";
 import ButtonIcon from "@/shared/ui/button-icon/ButtonIcon.tsx";
 import Button from "@/shared/ui/button/Button.tsx";
 import PlusIcon from '@/shared/assets/icons/plus.svg?react';
 import ArrowsIcon from '@/shared/assets/icons/arrows.svg?react';
-import {useState} from "react";
+
 import styles from './TableHeader.module.scss';
 
 const TableHeader = () => {
@@ -18,10 +20,10 @@ const TableHeader = () => {
     <div className={styles.wrapper}>
       <h3 className={styles.heading}>Все позиции</h3>
       <div className={styles.buttons_container}>
-        <Button className={styles.button_arrows} onClick={openAddForm}>
+        <Button className={styles.button_arrows} type={'button'}>
           <ArrowsIcon className={styles.arrows_icon}/>
         </Button>
-        <ButtonIcon className={styles.button} onClick={openAddForm}>
+        <ButtonIcon className={styles.button} type={'button'} onClick={openAddForm}>
           <PlusIcon className={styles.plus_icon}/>Добавить
         </ButtonIcon>
       </div>

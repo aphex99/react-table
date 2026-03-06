@@ -1,9 +1,10 @@
-import {productsApi} from "@/pages/products/api/products.api.ts";
-import {ITEMS_ON_PAGE} from "@/pages/products/config/tableHeaders.ts";
-import type {UseProductsTableParamsType, UseProductsTableReturnType} from "@/pages/products/model/types.ts";
-import {useTableSort} from "@/pages/products/ui/table-wrapper/model/useTableSort.ts";
 import {keepPreviousData, useQuery} from "@tanstack/react-query";
 import {useState} from "react";
+
+import {productsApi} from "../../../api/products.api.ts";
+import {ITEMS_ON_PAGE} from "../../../config/tableHeaders.ts";
+import type {UseProductsTableParamsType, UseProductsTableReturnType} from "../../../model/types.ts";
+import {useTableSort} from "../../table-wrapper/model/useTableSort.ts";
 
 export const useProductsTable = ({searchQuery}: UseProductsTableParamsType): UseProductsTableReturnType => {
   const [currentPage, setCurrentPage] = useState(1);

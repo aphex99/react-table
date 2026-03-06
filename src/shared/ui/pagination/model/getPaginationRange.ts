@@ -10,7 +10,7 @@ const range = (start: number, end: number) => {
   return Array.from({length}, (_, i) => i + start);
 };
 
-export const usePagination = ({pagesCount, currentPage}: UsePaginationParamsType) => {
+export const getPaginationRange = ({pagesCount, currentPage}: UsePaginationParamsType) => {
   const siblings = 1;
   const totalPageNumbers = 2 * siblings + 5;
 

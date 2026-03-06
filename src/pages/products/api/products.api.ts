@@ -1,5 +1,6 @@
-import type {ProductsRequestType, ProductsResponseType} from "@/pages/products/api/types.ts";
 import {axiosInstance} from "@/shared/config/axios/axios.ts";
+
+import type {ProductsRequestType, ProductsResponseType} from "./types.ts";
 
 export const productsApi = {
   getProducts: ({searchQuery, limit, skip = 0, sortName, sortOrder}: ProductsRequestType) => {
