@@ -13,7 +13,10 @@ import LockIcon from '@/shared/assets/icons/lock.svg?react';
 import CrossIcon from '@/shared/assets/icons/cross.svg?react';
 
 import {useLogin} from "../../api/useLogin.ts";
-import {type LoginFormSchemaType, loginSchema} from "../../config/loginSchema.ts";
+import {
+  type LoginFormSchemaType,
+  loginSchema
+} from "../../config/loginSchema.ts";
 
 import styles from "./AuthForm.module.scss";
 
@@ -57,7 +60,7 @@ const AuthForm = ({handleLoader}: AuthFormPropsType) => {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.input_wrapper}>
-        <label htmlFor="username" className={styles.label}>Логин</label>
+        <label htmlFor="username" className={styles.label}>Логин - emilys</label>
         <div className={styles.input_container}>
           <UserIcon className={styles.left_icon}/>
           <input
@@ -76,11 +79,12 @@ const AuthForm = ({handleLoader}: AuthFormPropsType) => {
             <CrossIcon/>
           </ButtonIcon>
         </div>
-        {errors.username && (<span className={styles.field_error}>{errors.username.message}</span>)}
+        {errors.username && (<span
+          className={styles.field_error}>{errors.username.message}</span>)}
       </div>
 
       <div className={styles.input_wrapper}>
-        <label htmlFor="password" className={styles.label}>Пароль</label>
+        <label htmlFor="password" className={styles.label}>Пароль - emilyspass</label>
         <div className={styles.input_container}>
           <LockIcon className={styles.left_icon}/>
           <input
@@ -100,14 +104,17 @@ const AuthForm = ({handleLoader}: AuthFormPropsType) => {
             />
           </ButtonIcon>
         </div>
-        {errors.password && (<span className={styles.field_error}>{errors.password.message}</span>)}
+        {errors.password && (<span
+          className={styles.field_error}>{errors.password.message}</span>)}
       </div>
 
       <div className={styles.checkbox_container}>
         <input type="checkbox" id={"checkbox"} {...register('remember')}/>
-        <label htmlFor="checkbox" className={styles.checkbox_label}>Запомнить меня</label>
+        <label htmlFor="checkbox" className={styles.checkbox_label}>Запомнить
+          меня</label>
       </div>
-      <Button type={"submit"} disabled={isPending} className={styles.button}>Войти</Button>
+      <Button type={"submit"} disabled={isPending}
+              className={styles.button}>Войти</Button>
     </form>
   );
 };

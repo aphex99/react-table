@@ -27,6 +27,7 @@
   border-radius: 8px;
   background: var(--white);
   border: 1px solid var(--gray-button);
+  cursor: pointer;
 }
 
 .arrows_icon {
@@ -46,6 +47,7 @@
   background: var(--blue-button);
   color: var(--font-button-white);
   font: var(--font-button-products);
+  cursor: pointer;
   &:hover {
     background: var(--blue-light);
   }
