@@ -45,6 +45,7 @@
   width: 20px;
   height: 20px;
   padding: 0;
+  cursor: pointer;
 }
 
 .number_button {
@@ -56,6 +57,7 @@
   box-shadow: 0 20px 50px 0 var(--font-shadow-h2);
   font: var(--font-button-products);
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .active_number_button {
